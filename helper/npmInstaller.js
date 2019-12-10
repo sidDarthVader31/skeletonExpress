@@ -20,5 +20,22 @@ npm.load(function(err) {
     });
   });
 }
+const runNpm=(argument)=>{
+  npm.load(function(err){
 
-module.exports=installPackage;
+  });
+  npm.commands.init(["-y"],function(err,data){
+    if(err){
+      console.log("error:",err);
+    }
+    else{
+      console.log("data:",data);
+    
+    }
+  })
+}
+
+module.exports={
+  installPackage,
+  runNpm
+}
