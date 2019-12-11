@@ -7,11 +7,11 @@ var readFile=require('./helper/readFile');
 var appendFile=require('./helper/appendFile');
 
 
-const createproject=async()=>{
+const createproject=async(projectName)=>{
     try {
         //create project folder
      var projectFolder = await directoryCreator(
-       path.join(__dirname, "/project")
+       path.join(__dirname, `/${projectName}`)
      );
      //create app folder
      var appFolder = await directoryCreator(path.join(projectFolder, "/app"));
@@ -64,8 +64,7 @@ const createproject=async()=>{
      var file=await createFile(path.join(appFolder,'/app.js'),appContent);
      var toWriteFile=await readFile(path.join(__dirname,'./files/packagejson.txt'));
      console.log("towrite::",toWriteFile);
-     var name="esocial";
-     var packagejson=await createFile(path.join(appFolder,'/package.json'),`{\n "name":"${name}", \n`);
+     var packagejson=await createFile(path.join(appFolder,'/package.json'),`{\n "name":"${projectName}", \n`);
      var package=await appendFile(path.join(appFolder,'/package.json'),toWriteFile);
    } catch (e) {
      console.log("error::::", e.toString());
