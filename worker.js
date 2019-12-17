@@ -7,12 +7,17 @@ var readFile=require('./helper/readFile');
 var appendFile=require('./helper/appendFile');
 
 
+const createFolder=async(folderName)=>{
+  return directoryCreator(folderName);
+}
+
 const createproject=async(projectName)=>{
     try {
         //create project folder
      var projectFolder = await directoryCreator(
        path.join(__dirname, `/${projectName}`)
      );
+     var projectFolder=await createFolder( path.join(__dirname, `/${projectName}`))
      //create app folder
      var appFolder = await directoryCreator(path.join(projectFolder, "/app"));
  
@@ -29,10 +34,8 @@ const createproject=async(projectName)=>{
      var middlewares = await directoryCreator(
        path.join(appFolder, "/middlewares")
      );
- 
      //create database
      var databaseFolder=await directoryCreator(path.join(appFolder,'/database'));
-     
      //create models folder
      var models=await directoryCreator(path.join(databaseFolder,'/models'));
  
@@ -57,16 +60,35 @@ const createproject=async(projectName)=>{
      //create style sheets folder
      var css=await directoryCreator(path.join(public,'/styleSheets'));
      var images=await directoryCreator(path.join(public,'/images'));
- 
      var js=await directoryCreator(path.join(public,'/js'));
      /////////////////CREATE FILES//////////////
      var appContent=await readFile(path.join(__dirname,'./files/app.txt'));
+
      var file=await createFile(path.join(appFolder,'/app.js'),appContent);
+
      var toWriteFile=await readFile(path.join(__dirname,'./files/packagejson.txt'));
      console.log("towrite::",toWriteFile);
+     //add project name
      var packagejson=await createFile(path.join(appFolder,'/package.json'),`{\n "name":"${projectName}", \n`);
+     //update package.json
      var package=await appendFile(path.join(appFolder,'/package.json'),toWriteFile);
-   } catch (e) {
+
+     //read from routes file
+     var routeContent=await readFile(path.join(__dirname,'./files/routeindex.txt'));
+     
+     //write route file
+     await createFile(path.join(routes,'/router.js'),routeContent);
+     //write controller file
+
+     var controllerContent=await readFile(path.join(__dirname,'./files/controller.txt'));
+     //write controller file 
+     var controllerFile=await createFile(path.join(controllers,'/controller.js'),controllerContent)
+     
+     //install npm package
+    npmInstaller.runNpm([]);
+   //  npmInstaller.installPackage(['express','body-parser','morgan','config']);
+   } 
+   catch (e) {
      console.log("error::::", e.toString());
    }
 }
