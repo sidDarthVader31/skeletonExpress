@@ -85,7 +85,7 @@ const createproject=async(projectName)=>{
      var controllerFile=await createFile(path.join(controllers,'/controller.js'),controllerContent)
      
      //install npm package
-    npmInstaller.runNpm([]);
+    npmInstaller.runNpm(`${projectName}`);
    //  npmInstaller.installPackage(['express','body-parser','morgan','config']);
    } 
    catch (e) {
