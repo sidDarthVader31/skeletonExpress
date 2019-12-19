@@ -79,7 +79,11 @@ const createproject=async(projectName)=>{
      var controllerContent=await readFile(path.join(__dirname,'./files/controller.txt'));
      //write controller file 
      var controllerFile=await createFile(path.join(controllers,'/controller.js'),controllerContent)
-     
+
+     console.log("comtroller file::",controllerFile);
+
+     var content=await readFile(controllerFile);
+     console.log("cotent:",content);
      //install npm package
    //npmInstaller.runNpm(`${projectName}`);
    } 

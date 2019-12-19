@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "bin": {
-    "express-project install": "cli.js"
+    "kyo": "cli.js"
   },
   "dependencies": {},
   "devDependencies": {}
