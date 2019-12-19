@@ -67,7 +67,7 @@ const createproject=async(projectName)=>{
      var file=await createFile(path.join(appFolder,'/app.js'),appContent);
 
      var toWriteFile=await readFile(path.join(__dirname,'./files/packagejson.txt'));
-     console.log("towrite::",toWriteFile);
+     console.log("package.json:",toWriteFile);
      //add project name
      var packagejson=await createFile(path.join(appFolder,'/package.json'),`{\n "name":"${projectName}", \n`);
      //update package.json

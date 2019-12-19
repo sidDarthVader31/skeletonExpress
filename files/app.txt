@@ -1,6 +1,25 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3000;
+var port = normalizePort(process.env.PORT || '3000');
+
+
+//define routes
 const router=require('./routes/router.js');
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+  if (isNaN(port)) {
+    return val;
+  }
+
+  if (port >= 0) {
+    return port;
+  }
+  return false;
+}
+
+
 app.use('/',router);
-app.listen(PORT);
+
+
+app.listen(port);
