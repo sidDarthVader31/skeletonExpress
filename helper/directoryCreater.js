@@ -1,8 +1,7 @@
 const fs=require('fs');
 /**
  * 
- * @param {*} path: path where directory is to be created relative to this file ('../database/)
- * @param {*} Name : name of the directory:("models")
+ * @param {*} path: path where directory is to be created relative to this file eg:'../database/
  */
 const createDirectory=(dir)=>{
     console.log("file::",dir);

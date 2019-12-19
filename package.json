@@ -1,16 +1,17 @@
 {
-  "name": "express-project-generator",
-  "version": "1.0.0",
+  "name": "project",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["express","nodejs","node"],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "commander": "^4.0.1"
+  "bin": {
+    "express-project install": "cli.js"
   },
+  "dependencies": {},
   "devDependencies": {}
 }

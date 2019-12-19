@@ -12,14 +12,10 @@ const createFolder=async(folderName)=>{
 }
 
 const createproject=async(projectName)=>{
-    try {
-        //create project folder
-     var projectFolder = await directoryCreator(
-       path.join(__dirname, `/${projectName}`)
-     );
-     var projectFolder=await createFolder( path.join(__dirname, `/${projectName}`))
-     //create app folder
-     var appFolder = await directoryCreator(path.join(projectFolder, "/app"));
+     try {
+      var dir=await  npmInstaller.getCurrentDirectory();
+      console.log("dir::",dir);
+     var appFolder = await directoryCreator( path.join(dir, `/${projectName}`));
  
      //create routes
      var routes = await directoryCreator(path.join(appFolder, "/routes"));
@@ -85,8 +81,7 @@ const createproject=async(projectName)=>{
      var controllerFile=await createFile(path.join(controllers,'/controller.js'),controllerContent)
      
      //install npm package
-    npmInstaller.runNpm(`${projectName}`);
-   //  npmInstaller.installPackage(['express','body-parser','morgan','config']);
+   //npmInstaller.runNpm(`${projectName}`);
    } 
    catch (e) {
      console.log("error::::", e.toString());
