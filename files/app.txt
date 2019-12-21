@@ -1,10 +1,27 @@
 const express = require("express");
 const app = express();
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || "3000");
+const cors = require("cors");
+var bodyParser = require("body-parser");
+var morgan = require("morgan");
 
+//use cors
+var corsOptions = {
+  origin: "http://example.com",
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+app.use(cors(corsOptions));
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+//use morgan
+app.use(morgan("combined"));
 //define routes
-const router=require('./routes/router.js');
+const router = require("./routes/router.js");
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
@@ -18,8 +35,11 @@ function normalizePort(val) {
   return false;
 }
 
+//only for testing purposes
+app.get("/", (req, res) => {
+  res.send("<h1> Welcome </h1>");
+});
 
-app.use('/',router);
-
+app.use("/", router);
 
 app.listen(port);

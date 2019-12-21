@@ -2,7 +2,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "node app.js"
+    "test": "node app.js",
+    "dev":"nodemon server"
   },
   "keywords": [],
   "author": "",

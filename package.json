@@ -1,17 +1,24 @@
 {
-  "name": "project",
-  "version": "0.0.2",
+  "name": "installer",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["express","nodejs","node"],
+  "keywords": [
+    "express",
+    "nodejs",
+    "node",
+    "npm"
+  ],
   "author": "",
   "license": "ISC",
   "bin": {
-    "kyo": "cli.js"
+    "gary": "./commander.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "commander": "^4.0.1"
+  },
   "devDependencies": {}
 }

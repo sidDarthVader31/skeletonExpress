@@ -7,16 +7,11 @@ var readFile=require('./helper/readFile');
 var appendFile=require('./helper/appendFile');
 
 
-const createFolder=async(folderName)=>{
-  return directoryCreator(folderName);
-}
 
-const createproject=async(projectName)=>{
-     try {
-      var dir=await  npmInstaller.getCurrentDirectory();
-      console.log("dir::",dir);
-     var appFolder = await directoryCreator( path.join(dir, `/${projectName}`));
- 
+const createproject=async(dir,projectName)=>{
+       try {
+     var appFolder = await directoryCreator(dir);
+     console.log("appFolder::",appFolder);
      //create routes
      var routes = await directoryCreator(path.join(appFolder, "/routes"));
  
@@ -32,6 +27,7 @@ const createproject=async(projectName)=>{
      );
      //create database
      var databaseFolder=await directoryCreator(path.join(appFolder,'/database'));
+
      //create models folder
      var models=await directoryCreator(path.join(databaseFolder,'/models'));
  
@@ -47,25 +43,43 @@ const createproject=async(projectName)=>{
  
      //create services folder
      var services=await directoryCreator(path.join(appFolder,'/services'));
+
      //create test folder
      var tests=await directoryCreator(path.join(appFolder,'/test'));
+
      //create views folder
      var views=await directoryCreator(path.join(appFolder,'/views'));
+
+     //create directory for cron jobs
      var cron=await directoryCreator(path.join(appFolder,'/cron'));
+
+     //create public directory
      var public =await directoryCreator(path.join(appFolder,'/public'));
+
      //create style sheets folder
      var css=await directoryCreator(path.join(public,'/styleSheets'));
+
+     //create images folder
      var images=await directoryCreator(path.join(public,'/images'));
+
+     //create js folder
      var js=await directoryCreator(path.join(public,'/js'));
+
+
      /////////////////CREATE FILES//////////////
+
+     //read content for app.js file
      var appContent=await readFile(path.join(__dirname,'./files/app.txt'));
 
+     //write content to newly created app.js file
      var file=await createFile(path.join(appFolder,'/app.js'),appContent);
 
+
      var toWriteFile=await readFile(path.join(__dirname,'./files/packagejson.txt'));
-     console.log("package.json:",toWriteFile);
+
      //add project name
      var packagejson=await createFile(path.join(appFolder,'/package.json'),`{\n "name":"${projectName}", \n`);
+     
      //update package.json
      var package=await appendFile(path.join(appFolder,'/package.json'),toWriteFile);
 
@@ -74,21 +88,21 @@ const createproject=async(projectName)=>{
      
      //write route file
      await createFile(path.join(routes,'/router.js'),routeContent);
-     //write controller file
-
+     
+     //read controller file
      var controllerContent=await readFile(path.join(__dirname,'./files/controller.txt'));
+     
      //write controller file 
      var controllerFile=await createFile(path.join(controllers,'/controller.js'),controllerContent)
 
-     console.log("comtroller file::",controllerFile);
-
      var content=await readFile(controllerFile);
-     console.log("cotent:",content);
+
      //install npm package
-   //npmInstaller.runNpm(`${projectName}`);
+     npmInstaller.runNpm(`${appFolder}`);
    } 
    catch (e) {
-     console.log("error::::", e.toString());
+     console.log("error::::",JSON.stringify(e));
+     console.log("please try again");
    }
 }
 module.exports={
