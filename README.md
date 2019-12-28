@@ -3,7 +3,7 @@
 
 skeletonExpress allows you to generate complete project structure for your express projects.
 
-The package pre installs express, body-parser, morgan, cors and nodemon, just run this command and no need to do **"npm install"** anymore.
+The package pre installs express(Exact version), body-parser, morgan, cors and nodemon(as a dev dependency) just run this command and no need to do **"npm install"** anymore.
 
 The generated project structure is as follows-
 
@@ -11,23 +11,25 @@ The generated project structure is as follows-
 
 The steps regarding installation are -
 
-Download the package globally->
+1.Download the package globally
 
 ``` npm install -g skeletonExpress ```
 
-run the following command-
+2.run the following command
 
 ```gary install <your_app_name> e.g gary install nodeGOAT```
 
-cd to your created folder, in this case
+3.cd to your created folder, in this case
 
 ``` cd nodeGOAT``` 
 
-run-> 
+4.run
 ```npm run dev``` 
 
 go to the browser and hit :localhost:3000
 
 and you will see the following output-
 <h1>Welcome </h1>
+
+enjoy !!
 
