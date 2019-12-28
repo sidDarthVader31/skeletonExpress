@@ -7,7 +7,33 @@ The package pre installs express(Exact version), body-parser, morgan, cors and n
 
 The generated project structure is as follows-
 
-![project structure](https://github.com/sidDarthVader31/skeletonExpress/blob/master/structure.png "project structure")
+```
+
+├── app.js
+├── controllers
+│   └── controller.js
+├── cron
+│   └── cron.js
+├── database
+│   ├── migration
+│   ├── models
+│   └── seeders
+├── helper
+├── middlewares
+├── package.json
+├── package-lock.json
+├── public
+│   ├── images
+│   ├── js
+│   └── styleSheets
+├── routes
+│   └── router.js
+├── services
+├── test
+├── tree.txt
+└── views
+
+```
 
 The steps regarding installation are -
 
