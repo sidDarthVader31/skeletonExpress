@@ -115,7 +115,7 @@ const createproject = async (dir, projectName) => {
     var cronContent = await readFile(path.join(__dirname, "./files/cron.txt"));
 
     var cronFile = await createFile(path.join(cron, "./cron.js"), cronContent);
-    //
+    
 
     //install npm package
     npmInstaller.runNpm(`${appFolder}`);

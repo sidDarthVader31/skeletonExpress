@@ -1,18 +1,19 @@
 {
-  "name": "installer",
+  "name": "skeletonexpress",
   "version": "0.0.3",
-  "description": "",
-  "main": "index.js",
+  "description": "An express project generator",
+  "main": "commander.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "node commander.js"
   },
   "keywords": [
     "express",
     "nodejs",
     "node",
-    "npm"
+    "npm",
+    "project"
   ],
-  "author": "",
+  "author": "Siddharth Bisht",
   "license": "ISC",
   "bin": {
     "gary": "./commander.js"
