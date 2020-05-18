@@ -81,7 +81,9 @@ const createproject = async (dir, projectName) => {
     var serverFile=await createFile(path.join(appFolder,"./server.js"),serverContent);
 
     //write dockerfile 
-    var dockerContent =await createFile(path.join(appFolder,"./Dockerfile"),dockerContent);
+
+    var dockerContent=await readFile(path.join(__dirname,'./files/Dockerfile.txt'));
+    var dockerFile =await createFile(path.join(appFolder,"./Dockerfile"),dockerContent);
     
     var toWriteFile = await readFile(
       path.join(__dirname, "./files/packagejson.txt")

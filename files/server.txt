@@ -15,5 +15,5 @@ function normalizePort(val) {
 
 
  app.listen(port, () => {
-    console.log(`server on port ${app.get('port')}`,);
+    console.log(`server on port ${port}`,);
 });

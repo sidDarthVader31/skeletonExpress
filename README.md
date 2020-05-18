@@ -9,29 +9,31 @@ The generated project structure is as follows-
 
 ```
 
-├── app.js
-├── controllers
-│   └── controller.js
-├── cron
-│   └── cron.js
-├── database
-│   ├── migration
-│   ├── models
-│   └── seeders
-├── helper
-├── middlewares
-├── package.json
-├── package-lock.json
-├── public
-│   ├── images
-│   ├── js
-│   └── styleSheets
-├── routes
-│   └── router.js
-├── services
-├── test
-├── tree.txt
-└── views
+├── ./app.js
+├── ./controllers
+│   └── ./controllers/controller.js
+├── ./cron
+│   └── ./cron/cron.js
+├── ./database
+│   ├── ./database/migration
+│   ├── ./database/models
+│   └── ./database/seeders
+├── ./Dockerfile
+├── ./helper
+├── ./middlewares
+├── ./package.json
+├── ./package-lock.json
+├── ./public
+│   ├── ./public/images
+│   ├── ./public/js
+│   └── ./public/styleSheets
+├── ./routes
+│   └── ./routes/router.js
+├── ./server.js
+├── ./services
+├── ./test
+└── ./views
+
 
 ```
 
