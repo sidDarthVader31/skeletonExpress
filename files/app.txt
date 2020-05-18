@@ -41,5 +41,4 @@ app.get("/", (req, res) => {
 });
 
 app.use("/", router);
-
-app.listen(port);
+module.exports=app;

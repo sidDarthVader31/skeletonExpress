@@ -74,6 +74,15 @@ const createproject = async (dir, projectName) => {
     //write content to newly created app.js file
     var file = await createFile(path.join(appFolder, "/app.js"), appContent);
 
+    
+    var serverContent=await readFile(path.join(__dirname,'./files/server.txt'));
+
+    //write server file 
+    var serverFile=await createFile(path.join(appFolder,"./server.js"),serverContent);
+
+    //write dockerfile 
+    var dockerContent =await createFile(path.join(appFolder,"./Dockerfile"),dockerContent);
+    
     var toWriteFile = await readFile(
       path.join(__dirname, "./files/packagejson.txt")
     );
@@ -95,6 +104,7 @@ const createproject = async (dir, projectName) => {
       path.join(__dirname, "./files/routeindex.txt")
     );
 
+
     //write route file
     await createFile(path.join(routes, "/router.js"), routeContent);
 
@@ -115,7 +125,6 @@ const createproject = async (dir, projectName) => {
     var cronContent = await readFile(path.join(__dirname, "./files/cron.txt"));
 
     var cronFile = await createFile(path.join(cron, "./cron.js"), cronContent);
-    
 
     //install npm package
     npmInstaller.runNpm(`${appFolder}`);

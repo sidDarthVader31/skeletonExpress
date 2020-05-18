@@ -43,7 +43,7 @@ The steps regarding installation are -
 
 2.run the following command
 
-```gary install <your_app_name> e.g gary install nodeGOAT```
+```skeleton install <your_app_name> e.g skeleton install nodeGOAT```
 
 3.cd to your created folder, in this case
 

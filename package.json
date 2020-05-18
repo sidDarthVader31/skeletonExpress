@@ -16,7 +16,7 @@
   "author": "Siddharth Bisht",
   "license": "ISC",
   "bin": {
-    "gary": "./commander.js"
+    "skeleton": "./commander.js"
   },
   "dependencies": {
     "commander": "^4.0.1"
