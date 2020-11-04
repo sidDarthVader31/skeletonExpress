@@ -5,11 +5,11 @@ const {exec}=require('child_process');
 
 
 if(!process.argv[2]){
-    console.log("use gary install <project name>");
+    console.log("use skeleton install <project name>");
 }
 else if(!process.argv[3]){
     console.log("you are missing app name");
-    console.log("use gary install <project name>");
+    console.log("use skeleton install <project name>");
 }
 else{
     exec("pwd",(error,stdout,stding)=>{
